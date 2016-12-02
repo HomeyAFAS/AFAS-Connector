@@ -5,6 +5,9 @@
     },
     "version": "0.0.1",
     "compatibility": "1.x",
+	"permissions":[
+		"homey:app:net.i-dev.betterlogic"
+	],
 	"flow": {
 	    "actions": [
 	        {
@@ -25,42 +28,14 @@
 	            ],
 	            "args": [
 	                {
-	                    "name": "when",
-	                    "type": "dropdown",
-	                    "values": [
-	                        {
-	                            "id": "1",
-	                            "label": {
-	                                "en": "1 minute",
-	                                "nl": "1 minuut"
-	                            }
-	                        },
-	                        {
-	                            "id": "5",
-	                            "label": {
-	                                "en": "5 minutes",
-	                                "nl": "5 minuten"
-	                            }
-	                        },
-	                        {
-	                            "id": "10",
-	                            "label": {
-	                                "en": "10 minutes",
-	                                "nl": "10 minuten"
-	                            }
-	                        },
-	                        {
-	                            "id": "15",
-	                            "label": {
-	                                "en": "15 minutes",
-	                                "nl": "15 minuten"
-	                            }
-	                        }
-	                    ]
+	                    "name": "get_connector",
+	                    "type": "text",
+	                    "placeholder" : { "en": "Getconnector" }
 	                },
 	                {
-	                    "name": "key",
-	                    "type": "text"
+	                    "name": "filter",
+	                    "type": "text",
+	                    "placeholder" : { "en": "Filter" }
 	                }
 	            ]
 	        }

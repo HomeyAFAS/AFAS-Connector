@@ -1,25 +1,28 @@
 "use strict";
-const request = require('request');
+const api = Homey.manager('api')
+const connector = require('./lib/connector.js');
+const betterLogic = new api.App('net.i-dev.betterlogic')
+
 function init() {
 	Homey.manager('flow').on('action.get_connector', function( callback, args ){
-		var token = Homey.manager('settings').get( 'token' );
-		var url = 'https://32772.afasonlineconnector.nl/profitrestservices/connectors/Pocket_Subjects';
-		
-		request({
-			headers: {
-				'authorization': 'AfasToken ' + new Buffer(token).toString('base64') 
-			},
-			uri: url + '?skip=0&take=1&filterfieldids=subjecttype&filtervalues=41&operatortypes=1'
-		}, function(error, response, body) {
-			if (error) {
-				Homey.log('error getting poa');
-				return [];
-			} else {
-				var response = JSON.parse(body);
-				Homey.log(response);
+		betterLogic.isInstalled(function (err, installed) {
+			if (err) {
+				Homey.log(err);
+				return callback('Kn ullete', null);
 			}
+			if (installed !== true) return callback('BetterLogic is not installed', null)
+		})
+
+		connector.get_connector( args, function( error, response ){
+			if (error) Homey.log(error)
+			Homey.log('Martijn');
+			Homey.log(response['title']);
+			betterLogic.put('/patrick/' + response['title'], null, function (err, result) {
+				if (err) Homey.log(err);
+				Homey.log(response);
+				callback(null, true)
+			})
 		});
-	    callback( null, true ); // we've fired successfully
 	});
 }
 
