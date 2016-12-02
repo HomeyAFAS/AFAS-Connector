@@ -1,0 +1,8 @@
+{
+  "name": "AFAS.Connector",
+  "author": "AFAS",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.79.0"
+  }
+}

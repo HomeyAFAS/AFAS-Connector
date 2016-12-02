@@ -6,7 +6,7 @@
     "version": "0.0.1",
     "compatibility": "1.x",
 	"flow": {
-	    "triggers": [
+	    "actions": [
 	        {
 	            "id": "get_connector",
 	            "title": {
@@ -63,71 +63,6 @@
 	                    "type": "text"
 	                }
 	            ]
-	        },
-	        {
-	            "id": "update_connector",
-	            "title": {
-	                "en": "Update Connector"
-	            },
-	            "tokens": [
-	                {
-	                    "name": "json",
-	                    "title": {
-	                        "en": "JSON"
-	                    },
-	                    "example": {
-	                        "en": "test"
-	                    }
-	                }
-	            ]
-	        }
-	    ],
-	    "conditions": [
-	        {
-	            "id": "raining",
-	            "title": {
-	                "en": "It !{{is|isn't}} raining"
-	            }
-	        },
-	        {
-	            "id": "raining_in",
-	            "title": {
-	                "en": "It is going to rain in..."
-	            },
-	            "args": [
-	                {
-	                    "name": "when",
-	                    "type": "dropdown",
-	                    "values": [
-	                        {
-	                            "id": "5",
-	                            "label": {
-	                                "en": "5 minutes"
-	                            }
-	                        },
-	                        {
-	                            "id": "10",
-	                            "label": {
-	                                "en": "10 minutes"
-	                            }
-	                        },
-	                        {
-	                            "id": "15",
-	                            "label": {
-	                                "en": "15 minutes"
-	                            }
-	                        }
-	                    ]
-	                }
-	            ]
-	        }
-	    ],
-	    "actions": [
-	        {
-	            "id": "stop_raining",
-	            "title": {
-	                "en": "Make it stop raining. Haha."
-	            }
 	        }
 	    ]
 	}
