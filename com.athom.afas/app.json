@@ -1,0 +1,134 @@
+{
+    "id": "com.athom.afas",
+    "name": {
+        "en": "AFAS"
+    },
+    "version": "0.0.1",
+    "compatibility": "1.x",
+	"flow": {
+	    "triggers": [
+	        {
+	            "id": "get_connector",
+	            "title": {
+	                "en": "Get Connector"
+	            },
+	            "tokens": [
+	                {
+	                    "name": "waarde",
+	                    "title": {
+	                        "en": "Waarde"
+	                    },
+	                    "example": {
+	                        "en": "Test"
+	                    }
+	                }
+	            ],
+	            "args": [
+	                {
+	                    "name": "when",
+	                    "type": "dropdown",
+	                    "values": [
+	                        {
+	                            "id": "1",
+	                            "label": {
+	                                "en": "1 minute",
+	                                "nl": "1 minuut"
+	                            }
+	                        },
+	                        {
+	                            "id": "5",
+	                            "label": {
+	                                "en": "5 minutes",
+	                                "nl": "5 minuten"
+	                            }
+	                        },
+	                        {
+	                            "id": "10",
+	                            "label": {
+	                                "en": "10 minutes",
+	                                "nl": "10 minuten"
+	                            }
+	                        },
+	                        {
+	                            "id": "15",
+	                            "label": {
+	                                "en": "15 minutes",
+	                                "nl": "15 minuten"
+	                            }
+	                        }
+	                    ]
+	                },
+	                {
+	                    "name": "key",
+	                    "type": "text"
+	                }
+	            ]
+	        },
+	        {
+	            "id": "update_connector",
+	            "title": {
+	                "en": "Update Connector"
+	            },
+	            "tokens": [
+	                {
+	                    "name": "json",
+	                    "title": {
+	                        "en": "JSON"
+	                    },
+	                    "example": {
+	                        "en": "test"
+	                    }
+	                }
+	            ]
+	        }
+	    ],
+	    "conditions": [
+	        {
+	            "id": "raining",
+	            "title": {
+	                "en": "It !{{is|isn't}} raining"
+	            }
+	        },
+	        {
+	            "id": "raining_in",
+	            "title": {
+	                "en": "It is going to rain in..."
+	            },
+	            "args": [
+	                {
+	                    "name": "when",
+	                    "type": "dropdown",
+	                    "values": [
+	                        {
+	                            "id": "5",
+	                            "label": {
+	                                "en": "5 minutes"
+	                            }
+	                        },
+	                        {
+	                            "id": "10",
+	                            "label": {
+	                                "en": "10 minutes"
+	                            }
+	                        },
+	                        {
+	                            "id": "15",
+	                            "label": {
+	                                "en": "15 minutes"
+	                            }
+	                        }
+	                    ]
+	                }
+	            ]
+	        }
+	    ],
+	    "actions": [
+	        {
+	            "id": "stop_raining",
+	            "title": {
+	                "en": "Make it stop raining. Haha."
+	            }
+	        }
+	    ]
+	}
+}
