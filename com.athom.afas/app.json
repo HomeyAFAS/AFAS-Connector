@@ -3,7 +3,7 @@
 	"name": {
 		"en": "AFAS"
 	},
-	"version": "0.0.1",
+	"version": "0.1",
 	"compatibility": "1.x",
 	"permissions":[
 		"homey:app:net.i-dev.betterlogic"
@@ -11,18 +11,20 @@
 	"flow": {
 		"actions": [
 			{
-				"id": "get_connector",
+				"id": "get_connector_better_logic",
 				"title": {
-					"en": "Get Connector"
+					"en": "Get Connector Better Logic"
 				},
 				"tokens": [
 					{
 						"name": "waarde",
 						"title": {
-							"en": "Waarde"
+							"en": "Value",
+							"nl": "Waarde"
 						},
 						"example": {
-							"en": "Test"
+							"en": "Value",
+							"nl": "Waarde"
 						}
 					}
 				],
@@ -35,12 +37,17 @@
 					{
 						"name": "filter",
 						"type": "text",
-						"placeholder" : { "en": "Filter" }
+						"placeholder" : {
+							"en": "Filter"
+						}
 					},
 					{
 						"name": "variable_name",
 						"type": "text",
-						"placeholder" : { "en": "Variabele" }
+						"placeholder" : {
+							"en": "Variable",
+							"nl": "Variabele"
+						}
 					}
 				]
 			},
@@ -53,10 +60,12 @@
 					{
 						"name": "waarde",
 						"title": {
-							"en": "Waarde"
+							"en": "Value",
+							"nl": "Waarde"
 						},
 						"example": {
-							"en": "Test"
+							"en": "Value",
+							"nl": "Waarde"
 						}
 					}
 				],

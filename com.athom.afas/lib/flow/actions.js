@@ -5,7 +5,7 @@ const connector = require('./connector.js');
 const betterLogic = new api.App('net.i-dev.betterlogic')
 
 exports.createActions = function () {
-	Homey.manager('flow').on('action.get_connector', function( callback, args ){
+	Homey.manager('flow').on('action.get_connector_better_logic', function( callback, args ){
 		betterLogic.isInstalled(function ( err, installed ) {
 			if (err) Homey.log(err); return callback('There is something wrong with BetterLogic', false);
 			if (installed !== true) Homey.log(err); return callback('BetterLogic is not installed', false);
