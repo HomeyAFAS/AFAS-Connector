@@ -1,44 +1,73 @@
 {
-    "id": "com.athom.afas",
-    "name": {
-        "en": "AFAS"
-    },
-    "version": "0.0.1",
-    "compatibility": "1.x",
+	"id": "com.athom.afas",
+	"name": {
+		"en": "AFAS"
+	},
+	"version": "0.0.1",
+	"compatibility": "1.x",
 	"permissions":[
 		"homey:app:net.i-dev.betterlogic"
 	],
 	"flow": {
-	    "actions": [
-	        {
-	            "id": "get_connector",
-	            "title": {
-	                "en": "Get Connector"
-	            },
-	            "tokens": [
-	                {
-	                    "name": "waarde",
-	                    "title": {
-	                        "en": "Waarde"
-	                    },
-	                    "example": {
-	                        "en": "Test"
-	                    }
-	                }
-	            ],
-	            "args": [
-	                {
-	                    "name": "get_connector",
-	                    "type": "text",
-	                    "placeholder" : { "en": "Getconnector" }
-	                },
-	                {
-	                    "name": "filter",
-	                    "type": "text",
-	                    "placeholder" : { "en": "Filter" }
-	                }
-	            ]
-	        }
-	    ]
+		"actions": [
+			{
+				"id": "get_connector",
+				"title": {
+					"en": "Get Connector"
+				},
+				"tokens": [
+					{
+						"name": "waarde",
+						"title": {
+							"en": "Waarde"
+						},
+						"example": {
+							"en": "Test"
+						}
+					}
+				],
+				"args": [
+					{
+						"name": "get_connector",
+						"type": "autocomplete",
+						"placeholder" : { "en": "Getconnector" }
+					},
+					{
+						"name": "filter",
+						"type": "text",
+						"placeholder" : { "en": "Filter" }
+					}
+				]
+			},
+			{
+				"id": "tfs",
+				"title": {
+					"en": "Team Foundation Server"
+				},
+				"tokens": [
+					{
+						"name": "waarde",
+						"title": {
+							"en": "Waarde"
+						},
+						"example": {
+							"en": "Test"
+						}
+					}
+				],
+				"args": [
+					{
+						"name": "type",
+						"type": "text",
+						"placeholder" : { "en": "API Type" }
+					},
+					{
+						"name": "filter",
+						"type": "text",
+						"placeholder" : { "en": "Filter" }
+					}
+				]
+			}
+		]
 	}
 }
