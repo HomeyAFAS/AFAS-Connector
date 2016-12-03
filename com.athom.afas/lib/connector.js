@@ -5,17 +5,21 @@ exports.get_connector = function(args, callback){
 	var url = 'https://32772.afasonlineconnector.nl/profitrestservices/connectors/' + args.get_connector;
 	request({
 		headers: {
-			'authorization': 'AfasToken ' + new Buffer(token).toString('base64') 
+			'authorization': 'AfasToken ' + new Buffer(token).toString('base64')
 		},
 		uri: url + '?skip=0&take=1&' + args.filter,
 		timeout: 1500
 	}, function(error, response, body) {
 		if (error) {
-			Homey.log(error)
+			Homey.log(error);
 			callback(error, body);
 		} else {
-			var response = JSON.parse(body);
-			callback(null, response.rows[0]);
+			if (len(response.rows) > 0){
+				var response = JSON.parse(body);
+				callback(null, response.rows[0]);
+			} else {
+				error = "No rows found";
+			}
 		}
 	});
 }

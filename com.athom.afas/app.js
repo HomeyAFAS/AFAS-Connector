@@ -8,20 +8,21 @@ function init() {
 		betterLogic.isInstalled(function (err, installed) {
 			if (err) {
 				Homey.log(err);
-				return callback('Kn ullete', null);
+				return callback('There is something wrong with BetterLogic', null);
 			}
 			if (installed !== true) return callback('BetterLogic is not installed', null)
 		})
 
-		connector.get_connector( args, function( error, response ){
-			if (error) Homey.log(error)
-			Homey.log('Martijn');
-			Homey.log(response['title']);
-			betterLogic.put('/patrick/' + response['title'], null, function (err, result) {
-				if (err) Homey.log(err);
-				Homey.log(response);
-				callback(null, true)
-			})
+		connector.get_connector( args, function( err, response ){
+			if (err) {
+				Homey.log(err)
+			} else {
+				betterLogic.put('/patrick/' + response['title'], null, function (err, result) {
+					if (err) Homey.log(err);
+					Homey.log(response);
+					callback(null, true)
+				});
+			}
 		});
 	});
 }
