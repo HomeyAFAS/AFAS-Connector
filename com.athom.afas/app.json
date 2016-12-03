@@ -36,6 +36,11 @@
 						"name": "filter",
 						"type": "text",
 						"placeholder" : { "en": "Filter" }
+					},
+					{
+						"name": "variable_name",
+						"type": "text",
+						"placeholder" : { "en": "Variabele" }
 					}
 				]
 			},

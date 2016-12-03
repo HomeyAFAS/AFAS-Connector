@@ -1,48 +1,23 @@
 "use strict";
-const api = Homey.manager('api')
-const connector = require('./lib/connector.js');
-const betterLogic = new api.App('net.i-dev.betterlogic')
 
-function init() {
-	Homey.manager('flow').on('action.get_connector', function( callback, args ){
-		betterLogic.isInstalled(function (err, installed) {
-			if (err) {
-				Homey.log(err);
-				return callback('There is something wrong with BetterLogic', null);
-			}
-			if (installed !== true) return callback('BetterLogic is not installed', null)
-		})
+var autoCompleteActions = require('./lib/autocomplete/actions.js');
+// var autoCompleteConditions = require('./lib/autocomplete/conditions.js');
+// var autoCompletetriggers = require('./lib/autocomplete/triggers.js');
 
-		connector.get_connector( args.get_connector + "connectors/", "skip=0&take=1&" + args.filter, function( err, response ){
-			if (err) {
-				Homey.log(err);
-			} else {
-				var result = response[0];
-				betterLogic.put('/patrick/' + result['title'], null, function (err, result) {
-					if (err) Homey.log(err);
-					callback(null, true);
-				});
-			}
-		});
-	});
+var flowActions = require('./lib/flow/actions.js');
+// var flowConditions = require('./lib/flow/conditions.js');
+// var flowTriggers = require('./lib/flow/triggers.js');
 
-	Homey.manager('flow').on('action.get_connector.arg_name.get_connector', function( callback, args ){
-		connector.get_connector( "metainfo", "", function( err, response){
-			if (err) {
-				Homey.log(err);
-			} else {
-				var getConnectors = response['getConnectors'];
+var self = module.exports = {
+	init: function () {
 
-				// filter items to match the search query
-				getConnectors = getConnectors.filter(function(item){
-					return ( item.id.toLowerCase().indexOf( args.query.toLowerCase() ) > -1 )
-				});
+		autoCompleteActions.createAutocompleteActions();
+		// autoCompleteConditions.createAutocompleteConditions();
+		// autoCompletetriggers.createAutocompleteTriggers();
 
-				callback( null, getConnectors ); // err, results
-			}
-		});
+		flowActions.createActions();
+		// flowConditions.createConditions();
+		// flowTriggers.createTriggers();
 
-	});
-}
-
-module.exports.init = init;
+	}
+};
