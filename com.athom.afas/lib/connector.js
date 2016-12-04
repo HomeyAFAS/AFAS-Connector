@@ -1,4 +1,6 @@
-var request = require('request');
+"use strict";
+
+const request = require('request');
 
 module.exports = {
 	getConnector: function(connector, filter, callback){

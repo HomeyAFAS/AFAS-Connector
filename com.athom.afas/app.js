@@ -1,14 +1,14 @@
 "use strict";
 
-var autoCompleteActions = require('./lib/autocomplete/actions.js');
+const autoCompleteActions = require('./lib/autocomplete/actions.js');
 // var autoCompleteConditions = require('./lib/autocomplete/conditions.js');
 // var autoCompletetriggers = require('./lib/autocomplete/triggers.js');
 
-var flowActions = require('./lib/flow/actions.js');
+const flowActions = require('./lib/flow/actions.js');
 // var flowConditions = require('./lib/flow/conditions.js');
 // var flowTriggers = require('./lib/flow/triggers.js');
 
-var self = module.exports = {
+module.exports = {
 	init: function () {
 
 		autoCompleteActions.createAutocompleteActions();
