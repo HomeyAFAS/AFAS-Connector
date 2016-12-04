@@ -13,7 +13,7 @@
 			{
 				"id": "get_connector_better_logic",
 				"title": {
-					"en": "Get Connector Better Logic"
+					"en": "Getconnector Better Logic"
 				},
 				"tokens": [
 					{
@@ -47,6 +47,50 @@
 						"placeholder" : {
 							"en": "Variable",
 							"nl": "Variabele"
+						}
+					}
+				]
+			},
+			{
+				"id": "get_connector_speech",
+				"title": {
+					"en": "Getconnector Speech"
+				},
+				"info": {
+					"en": "Use [connectorfield] in the speech block to use fields from the connector in speech."
+				},
+				"tokens": [
+					{
+						"name": "waarde",
+						"title": {
+							"en": "Value",
+							"nl": "Waarde"
+						},
+						"example": {
+							"en": "Value",
+							"nl": "Waarde"
+						}
+					}
+				],
+				"args": [
+					{
+						"name": "get_connector",
+						"type": "autocomplete",
+						"placeholder" : { "en": "Getconnector" }
+					},
+					{
+						"name": "filter",
+						"type": "text",
+						"placeholder" : {
+							"en": "Filter"
+						}
+					},
+					{
+						"name": "speech",
+						"type": "text",
+						"placeholder" : {
+							"en": "Speech",
+							"nl": "Spraak"
 						}
 					}
 				]
