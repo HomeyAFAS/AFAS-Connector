@@ -7,7 +7,7 @@ module.exports = {
 		var token = Homey.manager('settings').get( 'token' );
 		var omgevingsNaam = Homey.manager('settings').get( 'omgevingsnaam' );
 
-		if ( !token || !omgevingsnaam ) return callback('Omgevingsnaam of token niet gezet in instellingen', null);
+		if ( !token || !omgevingsNaam ) return callback('Omgevingsnaam of token niet gezet in instellingen', null);
 
 		var url = 'https://' + omgevingsNaam + '.afasonlineconnector.nl/profitrestservices/' + connector;
 		request({
@@ -15,18 +15,14 @@ module.exports = {
 				'authorization': 'AfasToken ' + new Buffer(token).toString('base64')
 			},
 			uri: url + '?' + filter,
-			timeout: 1500
+			timeout: 9000
 		}, function(err, response, body) {
 			if (err) {
 				Homey.log(err);
-				callback(err, body);
+				callback(err, null);
 			} else {
-				if (len(response.rows) > 0){
-					var response = JSON.parse(body);
-					callback(null, response.rows);
-				} else {
-					callback("No rows found", null);
-				}
+				var response = JSON.parse(body);
+				callback(null, response);
 			}
 		});
 	}

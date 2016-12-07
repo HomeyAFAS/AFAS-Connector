@@ -10,7 +10,6 @@ const flowActions = require('./lib/flow/actions.js');
 
 module.exports = {
 	init: function () {
-
 		autoCompleteActions.createAutocompleteActions();
 		// autoCompleteConditions.createAutocompleteConditions();
 		// autoCompletetriggers.createAutocompleteTriggers();
@@ -18,6 +17,5 @@ module.exports = {
 		flowActions.createActions();
 		// flowConditions.createConditions();
 		// flowTriggers.createTriggers();
-
 	}
 };

@@ -3,10 +3,12 @@
 	"name": {
 		"en": "AFAS"
 	},
-	"version": "0.1",
+	"version": "0.0.1",
 	"compatibility": "1.x",
 	"permissions":[
-		"homey:app:net.i-dev.betterlogic"
+		"homey:app:net.i-dev.betterlogic",
+		"homey:app:com.athom.soundboard",
+		"homey:manager:speech-output"
 	],
 	"flow": {
 		"actions": [
@@ -86,6 +88,11 @@
 						}
 					},
 					{
+						"name": "sound",
+						"type": "autocomplete",
+						"placeholder" : { "en": "Geluid" }
+					},
+					{
 						"name": "speech",
 						"type": "text",
 						"placeholder" : {
@@ -96,33 +103,34 @@
 				]
 			},
 			{
-				"id": "tfs",
+				"id": "zonwering",
 				"title": {
-					"en": "Team Foundation Server"
+					"en": "Zonwering"
 				},
-				"tokens": [
-					{
-						"name": "waarde",
-						"title": {
-							"en": "Value",
-							"nl": "Waarde"
-						},
-						"example": {
-							"en": "Value",
-							"nl": "Waarde"
-						}
-					}
-				],
 				"args": [
 					{
 						"name": "type",
-						"type": "text",
-						"placeholder" : { "en": "API Type" }
-					},
-					{
-						"name": "filter",
-						"type": "text",
-						"placeholder" : { "en": "Filter" }
+						"type": "dropdown",
+						"values": [
+							{
+								"id": "down",
+								"label": {
+									"en": "Naar beneden"
+								}
+							},
+							{
+								"id": "up",
+								"label": {
+									"en": "Naar boven"
+								}
+							},
+							{
+								"id": "stop",
+								"label": {
+									"en": "stop"
+								}
+							}
+						]
 					}
 				]
 			}
