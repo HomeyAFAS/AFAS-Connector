@@ -29,6 +29,7 @@ module.exports = {
 		});
 
 		Homey.manager('flow').on('action.get_connector_speech', function( callback, args ){
+			Homey.log(args);
 			connector.getConnector( "connectors/" + args.get_connector.name, "skip=0&take=1&" + args.filter, function( err, response ){
 				if (err) return callback('There is something wrong with the connector', false);
 
@@ -41,6 +42,7 @@ module.exports = {
 					var currentResultId = result[Object.keys(result)[0]]
 					if (currentResultId != pastResultId) {
 						Homey.manager('settings').set( 'connector_' + args.get_connector.name, currentResultId );
+						Homey.manager('settings').set( 'connector_json_' + args.get_connector.name, JSON.stringify(result) );
 						
 						soundboard.post("/"+args.sound.id+"/play", function(err, args) {
 							if (err) return callback('There is something wrong with soundboard', false);
@@ -60,6 +62,7 @@ module.exports = {
 
 		Homey.manager('flow').on('action.zonwering', function( callback, args ){
 			const stop = Buffer.from("0f0003010001bcfff04965e1008081", "hex");
+
 			const down = Buffer.from("0f0003010000bcfff04865e1008101", "hex");
 			const up   = Buffer.from("0f0003010004bcfff04865e1008080", "hex");
 
@@ -89,7 +92,7 @@ module.exports = {
 
 String.prototype.replaceTags = function(response) {
 	var target = this;
-	var myRegexp = /\[\[(\w+)\]\]/g;
+	var myRegexp = /\[\;(\w+)\;\]/g;
 	var match = myRegexp.exec(target);
 	while (match != null) {
 	  target = target.replace(match[0], response[match[1]]);

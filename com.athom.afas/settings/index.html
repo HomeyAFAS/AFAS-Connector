@@ -16,10 +16,14 @@
 			<label for="omgevingsnaam">Omgevingsnaam</label>
 			<input id="omgevingsnaam" type="text" value="" />
 		</div>
+		<div class="field row">
+			<label for="omgevingsnaam">Vorige result</label>
+			<input id="omgevingsnaam" type="text" value="" disabled/>
+		</div>
 
 		<button class="right" onclick="save()">Opslaan</button>
 
-		<script type="text/javascript">
+		<script type="text/javascript"> 
 		function onHomeyReady(){
 			Homey.ready();
 			Homey.get('token', function (error, token) {
@@ -33,7 +37,13 @@
 				if (omgevingsnaam != null) {
 					document.getElementById('omgevingsnaam').value = omgevingsnaam
 				}
-			})
+			});
+			Homey.get('omgevingsnaam', function (error, omgevingsnaam) {
+				if (error) return console.error(error)
+				if (omgevingsnaam != null) {
+					document.getElementById('omgevingsnaam').value = omgevingsnaam
+				}
+			});
 		}
 
 		function save() {

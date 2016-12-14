@@ -8,7 +8,24 @@
 	"permissions":[
 		"homey:app:net.i-dev.betterlogic",
 		"homey:app:com.athom.soundboard",
-		"homey:manager:speech-output"
+		"homey:manager:speech-output",
+		"homey:manager:ledring"
+	],
+	"screensavers": [
+		{
+			"name": "christmas",
+			"title": {
+				"en": "Christmas",
+				"nl": "Kerst"
+			}
+		},
+		{
+			"name": "newyear",
+			"title": {
+				"en": "New Year",
+				"nl": "Nieuwjaar"
+			}
+		}
 	],
 	"flow": {
 		"actions": [
