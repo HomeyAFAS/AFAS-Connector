@@ -118,38 +118,6 @@
 						}
 					}
 				]
-			},
-			{
-				"id": "zonwering",
-				"title": {
-					"en": "Zonwering"
-				},
-				"args": [
-					{
-						"name": "type",
-						"type": "dropdown",
-						"values": [
-							{
-								"id": "down",
-								"label": {
-									"en": "Naar beneden"
-								}
-							},
-							{
-								"id": "up",
-								"label": {
-									"en": "Naar boven"
-								}
-							},
-							{
-								"id": "stop",
-								"label": {
-									"en": "stop"
-								}
-							}
-						]
-					}
-				]
 			}
 		]
 	}
