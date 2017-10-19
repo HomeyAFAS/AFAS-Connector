@@ -59,34 +59,6 @@ module.exports = {
 				}
 			});
 		});
-
-		Homey.manager('flow').on('action.zonwering', function( callback, args ){
-			const stop = Buffer.from("0f0003010001bcfff04965e1008081", "hex");
-
-			const down = Buffer.from("0f0003010000bcfff04865e1008101", "hex");
-			const up   = Buffer.from("0f0003010004bcfff04865e1008080", "hex");
-
-			switch(args.type) {
-				case "up":
-					var message = up;
-					break;
-				case "down":
-					var message = down;
-					break;
-				case "stop":
-					var message = stop;
-					break;
-			}
-			// NOTE: the port is different
-			var host = "192.168.2.14", port = 1634;
-
-			var dgram = require( "dgram" );
-
-			var client = dgram.createSocket( "udp4" );
-
-			client.send(message, 0, message.length, port, host );
-			return callback(null, true);
-		});
 	}
 };
 
